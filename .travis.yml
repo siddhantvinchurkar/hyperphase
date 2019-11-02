@@ -3,8 +3,9 @@ node_js:
   - "node"
 before_script:
   - sudo apt-get install npm
+  - sudo npm install -g eslint
   - cd functions/
-  - sudo npm install
+  - sudo npm install --save
   - cd ..
 script:
   - 
