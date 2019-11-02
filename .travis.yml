@@ -1,8 +1,14 @@
 language: node_js
 node_js:
   - "node"
-script:
+before_script:
+  - sudo npm install -g eslint
+  - cd functions/
+  - sudo npm install
+  - cd ..
   - echo "Begin Deploy!"
+script:
+  - 
 deploy:
   provider: firebase
   token:
