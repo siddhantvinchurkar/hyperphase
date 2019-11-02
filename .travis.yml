@@ -4,6 +4,7 @@ node_js:
 before_script:
   - sudo apt-get install npm
   - sudo npm install -g eslint
+  - sudo npm install -g eslint-plugin-promise@latest
   - cd functions/
   - sudo npm install --save
   - cd ..
