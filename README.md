@@ -6,3 +6,6 @@
 #### [Travis CI](https://travis-ci.com/siddhantvinchurkar/hyperphase "Travis CI") and [Github Pages](https://github.com/siddhantvinchurkar/hyperphase/deployments "Github Pages") automatically build and deploy every commit from the master branch.
 [![Build Status](https://travis-ci.com/siddhantvinchurkar/hyperphase.svg?branch=master "Build Status")](https://travis-ci.com/siddhantvinchurkar/hyperphase)
 [![Build Status](https://img.shields.io/badge/Github%20Pages-build%20successful-success "Build Status")](https://github.com/siddhantvinchurkar/hyperphase/deployments)
+---
+
+You'll need a physical *U2F* security key to access this control panel. For that, contact [The Timekeeper <thetimekeeper@hyperphase.app>](mailto:thetimekeeper@hyperphase.app "Send an email to the timekeeper")
