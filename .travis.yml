@@ -1,16 +1,14 @@
 language: node_js
 node_js:
-  - "node"
-before_script:
-  - sudo apt-get install npm
-  - sudo npm install -g eslint
-  - sudo npm install -g eslint-plugin-promise@latest
-  - cd functions/
-  - sudo npm install --save
-  - cd ..
+ - "13"
 script:
-  - 
-deploy:
-  provider: firebase
-  token:
-    secure: "awkIwHrA/s778X/hBfroxB1n95us6YUgQxJBKVgKcfl8vysq919aN738d+9Bow6NFrauo+4t9F0d/QkL0vqK79UX2DQmaezqAQT5Bx/ZYjhO3f4oBsqqCLUBCxdCMMe3O98s3iSlXBtRtDO5oEoIiEi/vnya/PR7RIywzLBXXr3L9rius1fdoFtu4hUdGO1LAE0DLzeA9CPG1EKA8XrDxlb9/FOgNoD+ccJ/AF3H54rbGogeYoYKIS9GlmM3IL6BFNDcIKCX8vkDlxrg2jhauumRaPy6esOGPmDNJ1H6yXwLvRJPgw5Vng43M+WIqiF0U99W71Ts0Gcyc5v3SSxTUQSIifDji8fzlkSBpFzRNC6TtTIClTx3wqxi/le3iJcypVh6DHS1PbZa/B9vK/eLqgBkNeOU4AJCmuLawCLRmInsDePcJWSqv76vxzvAwqW1SWwwfC1BsybX0TeEm7lijq97khVHO59qO9NiFWZXQVGAkGiZl7iSmBKyMDz1Z8gtbaCAhFrdYxsCRpoYtCnxTQ4HeFjNk5GKWwP+/fQbveMqFwxXiBC65qpZapyKS9/mdG1uqVrjLqz0nQ6rhR56uaIYNlQMiD9crPVo/jOMlojl6yG8ktobvS5x56cCYN3xC0myYXq8+fbk3vhzA5g8lZg3cTfi3yecZMX9Eo8OuPo="
+ - echo "Installing npm and all necessary packages..."
+install:
+ - npm install -g firebase-tools
+ - cd functions/
+ - npm install
+ - cd ..
+after_success:
+ - echo "Starting deploy!"
+ - firebase deploy --project hyperphase --token $FIREBASE_TOKEN
+ - echo "Deploy Successful."
