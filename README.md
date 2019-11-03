@@ -8,4 +8,4 @@
 [![Build Status](https://img.shields.io/badge/Github%20Pages-build%20successful-success "Build Status")](https://github.com/siddhantvinchurkar/hyperphase/deployments)
 ---
 
-You'll need a physical *U2F* security key to access this control panel. For that, contact [The Timekeeper](mailto:thetimekeeper@hyperphase.app "Send an email to the timekeeper")
+You'll need a physical *U2F* security key to access this control panel. For that, contact [The Timekeeper](mailto:thetimekeeper@hyperphase.app "Send an email to the timekeeper").
