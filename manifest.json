@@ -1,0 +1,44 @@
+{
+	"short_name": "Hyperphase",
+	"name": "The Hyperphase App",
+	"icons": [
+		{
+			"src": "resources/images/icons/favicon_48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "resources/images/icons/favicon_72.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "resources/images/icons/favicon_96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "resources/images/icons/favicon_144.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "resources/images/icons/favicon_192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "resources/images/icons/favicon_512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"background_color": "#FFFFFF",
+	"display": "standalone",
+	"orientation": "portrait",
+	"theme_color": "#FF00FF",
+	"start_url": "index.html",
+	"manifest_version": 2,
+	"version": "1.0",
+	"summary": "An end-to-end encrypted drone that's really hard to track."
+}

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap');
+html {
+  font-family: 'Maven Pro', sans-serif;
+  background-color: #000000!important;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .page-footer{
+    padding-top: 0px !important;
+    background-color:#FFFFFF !important;
+  }
+
+  .page-footer .footer-copyright{
+    font-size: 1.2em;
+    background-color: #000000!important;
+    color: #FF00FF !important;
+  }
+
+  .page-footer .footer-copyright .container{
+    background-color: #000000!important;
+  }
+
+  .i-am-in-the-center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  }
+
+  .i-am-in-the-center h1{
+    font-size: 15em;
+  }
+
+  .i-am-below-you{
+    margin-top: 10em;
+  }
+
+  .i-am-below-you p{
+    margin-top: 3em;
+  }
+
+  .c{color: #00FFFF !important;}
+  
+  .m{color: #FF00FF !important;}
+
+  .y{color: #FFFF00 !important;}
+
+  .k{color: #000000 !important;}
+
+  #blocker{display: none;}
+  
+  #lander{display: none}
+
+  .progress{
+    display: none;
+  }
