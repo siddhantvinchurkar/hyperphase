@@ -39,11 +39,11 @@ body {
   }
 
   .i-am-in-the-center h1{
-    font-size: 15em;
+    font-size: 12em;
   }
 
   .i-am-below-you{
-    margin-top: 10em;
+    margin-top: 7em;
   }
 
   .i-am-below-you p{
@@ -62,6 +62,12 @@ body {
   
   #lander{display: none}
 
-  .progress{
-    display: none;
-  }
+  .progress{display: none;}
+
+  #rtf{display: none;}
+
+  #keytext{display: none;}
+
+  #hrep{margin-left: 37.5% !important;}
+
+  #hrepu2f{height: 256px !important; margin-left: 37.5% !important;}

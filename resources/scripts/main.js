@@ -58,9 +58,19 @@ window.onload = function () {
 			loadJS('resources/scripts/materialize.min.js');
 			loadJS('resources/scripts/sweetalert.js');
 			setTimeout(function () {
-				document.getElementById('button_start').style.display = 'inline-block';
-				document.getElementById('progress_bar').style.display = 'none';
-				/* TODO: Ready to load components. 
+
+				// A small animation sequence
+
+				$('#lander-container').fadeOut(1000);
+				setTimeout(function () { $('#keytext').fadeIn(1000); }, 1500);
+
+				/* Verify user's identity and then 
+				authenticate user on firebase */
+
+
+
+				//setTimeout(function () { $('#keytext').fadeOut(1000); }, 3000);
+				/* TODO: Ready to load data components. 
 				Begin lazy-loading components. */
 			}, 10000);
 		}

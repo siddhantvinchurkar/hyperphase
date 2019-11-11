@@ -37,6 +37,7 @@
 
   <body>
     <!-- What if some browser does not support javascript or has turned it off? -->
+
     <noscript>Unfortunately, your browser does not support javascript. Either that or it's disabled. Maybe try to
       enable
       it? Privacy centric browsers like Tor or Brave tend to do this more often than you think. Don't worry. We
@@ -44,24 +45,46 @@
       your privacy and will never collect data from you without your explicit consent. If you want to know for sure,
       head over to our <a href="https://privacy.hyperphase.app/" title="Privacy Policy"
         alt="https://privacy.hyperphase.app/">Privacy Policy</a>.</noscript>
+
+
     <img id="blocker" class="responsive-img" src="resources/images/hyperphase-hi-res-mobile-block.webp"
       alt="https://hyperphase.app/"></img>
+
+    <!-- Main Content -->
+
     <main id="lander">
-      <div class="i-am-in-the-center">
-        <h1><span class="c">hyp</span><span class="m">erp</span><span class="y">hase</span></h1>
-        <div class="center-align i-am-below-you">
-          <a id="button_start" class="waves-effect waves-light btn-large pink darken-3 pulse"><i
-              class="material-icons left">stars</i><b>Start the hyperphase web app</b></a>
-          <div id="progress_bar" class="progress cyan">
-            <div class="indeterminate yellow"></div>
+      <div id="lander-container">
+        <div class="i-am-in-the-center">
+          <img id="hrep" class="responsive-img center-align"
+            src="resources/images/hyperphase-low-res-representation.webp" alt="https://hyperphase.app/"></img>
+          <h1><span class="c">hyp</span><span class="m">erp</span><span class="y">hase</span></h1>
+          <div class="center-align i-am-below-you">
+            <a id="button_start" class="waves-effect waves-light btn-large pink darken-3 pulse"><i
+                class="material-icons left">stars</i><b>Start the hyperphase web app</b></a>
+            <div id="progress_bar" class="progress cyan">
+              <div class="indeterminate yellow"></div>
+            </div>
+            <p class="center-align white-text">This is a progressive web app. You
+              can install it by clicking the &emsp;<i class="material-icons">add_circle_outline</i>&emsp; icon at the
+              end
+              of your
+              omnibox.</p>
           </div>
-          <p class="center-align white-text">This is a progressive web app. You
-            can install it by clicking the &emsp;<i class="material-icons">add_circle_outline</i>&emsp; icon at the end
-            of your
-            omnibox.</p>
         </div>
       </div>
+      <div id="rtf" class="i-am-in-the-center white-text">
+        <h2>Ready to fly.</h2>
+      </div>
+      <div id="keytext" class="i-am-in-the-center white-text">
+        <img id="hrepu2f" class="responsive-img center-align"
+          src="resources/images/hyperphase-u2f-low-res-representation.webp" alt="https://hyperphase.app/"></img>
+        <h4 class="center-align"><span class="m">Just one more step before you fly: </span><span class="c">verify your
+            identity.</span><br /><span class="y">Insert your
+            pre-registered U2F USB security
+            key.</span></h4>
+      </div>
     </main>
+
     <!-- Footer -->
     <footer class="page-footer">
       <div class="footer-copyright center-align">
@@ -75,6 +98,7 @@
 
     <!-- Main Script (Uncompressed) -->
     <script type="application/javascript" src="resources/scripts/main.js" defer></script>
+
   </body>
 
 </html>
