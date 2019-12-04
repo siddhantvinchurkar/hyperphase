@@ -45,9 +45,7 @@ function registrationVerificationHandler(request, response) {
 			});
 			return response.send('key-verified');
 		}
-		else {
-			return response.send('key-unverified');
-		}
+		return response.send('key-unverified');
 	}).catch((error) => {
 		// result.errorMessage is defined with an English-language description of the error.
 		return response.send(error);
