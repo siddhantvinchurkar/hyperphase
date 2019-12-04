@@ -40,12 +40,15 @@ function registrationVerificationHandler(request, response) {
 			// this user.
 			db.collection('authorized-keys').doc(request.query.docId).update({ publicKey: result.publicKey, keyHandle: result.keyHandle }).then(() => {
 				console.log('New key registered!');
+				return true;
 			}).catch((error) => {
 				console.log(error);
 			});
 			return response.send('key-verified');
 		}
-		return response.send('key-unverified');
+		else {
+			return response.send('key-unverified');
+		}
 	}).catch((error) => {
 		// result.errorMessage is defined with an English-language description of the error.
 		return response.send(error);
