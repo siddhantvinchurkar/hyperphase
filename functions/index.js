@@ -13,7 +13,7 @@ admin.initializeApp(functions.config().firebase);
 
 // Function to register new U2F key
 
-exports.registrationChallengeHandler = functions.https.onRequest((request, response) {
+exports.registrationChallengeHandler = functions.https.onRequest((request, response) => {
 	// 1. Generate a registration request and save it in the session.
 	const registrationRequest = u2f.request(APP_ID);
 	var db = admin.firestore();
@@ -28,7 +28,7 @@ exports.registrationChallengeHandler = functions.https.onRequest((request, respo
 });
 // Function to verify U2F key
 
-exports.registrationVerificationHandler = functions.https.onRequest((request, response) {
+exports.registrationVerificationHandler = functions.https.onRequest((request, response) => {
 	// 3. Verify the registration response from the client against the registration request saved
 	// in the server-side session.
 	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
