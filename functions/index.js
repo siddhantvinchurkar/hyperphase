@@ -13,7 +13,7 @@ admin.initializeApp(functions.config().firebase);
 
 // Function to register new U2F key
 
-function registrationChallengeHandler(request, response) {
+exports.registrationChallengeHandler = functions.https.onRequest((request, response) {
 	// 1. Generate a registration request and save it in the session.
 	const registrationRequest = u2f.request(APP_ID);
 	var db = admin.firestore();
@@ -25,11 +25,10 @@ function registrationChallengeHandler(request, response) {
 	}).catch((error) => {
 		return response.send(error);
 	});
-}
-
+});
 // Function to verify U2F key
 
-function registrationVerificationHandler(request, response) {
+exports.registrationVerificationHandler = functions.https.onRequest((request, response) {
 	// 3. Verify the registration response from the client against the registration request saved
 	// in the server-side session.
 	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
@@ -53,4 +52,4 @@ function registrationVerificationHandler(request, response) {
 		// result.errorMessage is defined with an English-language description of the error.
 		return response.send(error);
 	});
-}
+});
