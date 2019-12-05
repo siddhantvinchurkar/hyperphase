@@ -16,6 +16,24 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "/newkey",
+        "function": "registrationChallengeHandler"
+      },
+      {
+        "source": "/verifynewkey",
+        "function": "registrationVerificationHandler"
+      },
+      {
+        "source": "/authorize",
+        "function": "authenticationChallengeHandler"
+      },
+      {
+        "source": "/verifyidentity",
+        "function": "authenticationVerificationHandler"
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
