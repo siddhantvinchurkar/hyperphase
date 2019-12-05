@@ -10,5 +10,6 @@ install:
  - cd ..
 after_success:
  - echo "Starting deploy!"
+ - firebase deploy --only functions --project hyperphase --token $FIREBASE_TOKEN
  - firebase deploy --project hyperphase --token $FIREBASE_TOKEN
  - echo "Deploy Successful."
