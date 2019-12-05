@@ -17,7 +17,7 @@ exports.registrationChallengeHandler = functions.https.onRequest((request, respo
 	// 1. Generate a registration request and save it in the server-side datastore.
 	const registrationRequest = u2f.request(APP_ID);
 	var db = admin.firestore();
-	db.collection('authorized-keys').doc(request.query.docId).update({ registrationRequest: registrationRequest }).then(() => {
+	db.collection('authorized-keys').doc('thetimekeeper').update({ registrationRequest: registrationRequest }).then(() => {
 		// 2. Send the registration request to the client, who will use the Javascript U2F API to sign
 		// the registration request, and send it back to the server for verification. The registration
 		// request is a JSON object containing properties used by the client to sign the request.
@@ -32,13 +32,13 @@ exports.registrationChallengeHandler = functions.https.onRequest((request, respo
 exports.registrationVerificationHandler = functions.https.onRequest((request, response) => {
 	// 3. Verify the registration response from the client against the registration request saved
 	// in the server-side session.
-	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
+	db.collection('authorized-keys').doc('thetimekeeper').get().then((doc) => {
 		const result = u2f.checkRegistration(doc.data().registrationRequest, request.query.registrationResponse);
 		if (result.successful) {
 			// Success!
 			// Save result.publicKey and result.keyHandle to the server-side datastore, associated with
 			// this user.
-			db.collection('authorized-keys').doc(request.query.docId).update({ publicKey: result.publicKey, keyHandle: result.keyHandle }).then(() => {
+			db.collection('authorized-keys').doc('thetimekeeper').update({ publicKey: result.publicKey, keyHandle: result.keyHandle }).then(() => {
 				console.log('New key registered!');
 				return true;
 			}).catch((error) => {
@@ -60,12 +60,12 @@ exports.registrationVerificationHandler = functions.https.onRequest((request, re
 exports.authenticationChallengeHandler = functions.https.onRequest((request, response) => {
 	// 1. Fetch the user's key handle from the server-side datastore. This field should have been
 	// saved after the registration procedure.
-	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
+	db.collection('authorized-keys').doc('thetimekeeper').get().then((doc) => {
 		const keyHandle = doc.data().keyHandle;
 		// 2. Generate an authentication request and save it in the server-side datastore. Use the same app ID that
 		// was used in registration!
 		const authRequest = u2f.request(APP_ID, keyHandle);
-		db.collection('authorized-keys').doc(request.query.docId).update({ authRequest: authRequest }).then(() => {
+		db.collection('authorized-keys').doc('thetimekeeper').update({ authRequest: authRequest }).then(() => {
 			console.log('Auth request created!');
 			// 3. Send the authentication request to the client, who will use the Javascript U2F API to sign
 			// the authentication request, and send it back to the server for verification.
@@ -79,10 +79,12 @@ exports.authenticationChallengeHandler = functions.https.onRequest((request, res
 	});
 });
 
+// Function to verify U2F key
+
 exports.authenticationVerificationHandler = functions.https.onRequest((request, response) => {
 	// 4. Fetch the user's public key from the server-side datastore. This field should have been
 	// saved after the registration procedure.
-	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
+	db.collection('authorized-keys').doc('thetimekeeper').get().then((doc) => {
 		const publicKey = doc.data().publicKey;
 		const authRequest = doc.data().authRequest;
 		// 5. Verify the authentication response from the client against the authentication request saved
