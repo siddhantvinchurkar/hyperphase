@@ -70,10 +70,10 @@ exports.authenticationChallengeHandler = funtions.https.onRequest((request, resp
 			// 3. Send the authentication request to the client, who will use the Javascript U2F API to sign
 			// the authentication request, and send it back to the server for verification.
 			return response.send(authRequest);
-			return true;
 		}).catch((error) => {
 			console.log(error);
 		});
+		return true;
 	}).catch((error) => {
 		response.send(error);
 	});
