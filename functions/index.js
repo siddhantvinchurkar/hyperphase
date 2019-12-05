@@ -57,7 +57,7 @@ exports.registrationVerificationHandler = functions.https.onRequest((request, re
 
 // Function to authenticate using a U2F key
 
-exports.authenticationChallengeHandler = funtions.https.onRequest((request, response) => {
+exports.authenticationChallengeHandler = functions.https.onRequest((request, response) => {
 	// 1. Fetch the user's key handle from the server-side datastore. This field should have been
 	// saved after the registration procedure.
 	db.collection('authorized-keys').doc(request.query.docId).get().then((doc) => {
