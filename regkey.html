@@ -40,8 +40,11 @@
 							},
 							pubKeyCredParams: [{ type: "public-key", alg: -7 }]
 						}
+					}).then(function (data) {
+						console.log(data);
+					}).catch(function (error) {
+						console.error(error);
 					});
-					console.log(credential);
 				});
 			}
 		}
