@@ -33,7 +33,9 @@
 							pubKeyCredParams: [{ type: "public-key", alg: -7 }]
 						}
 					}).then(function (data) {
-						console.log(data);
+						httpGetAsync('https://hyperphase.app/verifynewkey?registrationResponse=' + data, function (response_data) {
+							console.log(response_data);
+						});
 					}).catch(function (error) {
 						console.error(error);
 					});
