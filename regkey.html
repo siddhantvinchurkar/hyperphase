@@ -29,7 +29,7 @@
 					/*u2f.register(registrationRequest.appId, [registrationRequest], function (data) {
 						console.log(data);
 					});*/
-					let credential = await navigator.credentials.create({
+					let credential = navigator.credentials.create({
 						publicKey: {
 							challenge: registrationRequest.challenge,
 							rp: { id: "hyperphase.app", name: "Hyperphase" },
