@@ -1,6 +1,6 @@
 const functions = require('firebase-functions');
 const u2f = require('u2f');
-const APP_ID = "hyperphase.app"
+const APP_ID = "https://hyperphase.app"
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 

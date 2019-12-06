@@ -13,14 +13,14 @@
 				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
 					callback(xmlHttp.responseText);
 			}
-			xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+			xmlHttp.open("GET", theUrl, true); // true for asynchronous
 			xmlHttp.send(null);
 		}
 		window.onload = function () {
 			document.getElementById('button').onclick = function () {
 				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
-					u2fApi.register(JSON.parse(registrationRequest)).then(function () {
-						//console.log(data);
+					u2fApi.register(JSON.parse(registrationRequest)).then(function (data) {
+						console.log(data);
 					}).catch(function (error) {
 						console.log(error);
 					});
