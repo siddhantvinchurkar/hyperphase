@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+	<head>
+		<title>Hyperphase Key Registrar</title>
+	</head>
+	<button id="button">Register New Key</button>
+	<script type="text/javascript" src="resources/scripts/u2f-api.js"></script>
+	<script type="text/javascript">
+		function httpGetAsync(theUrl, callback) {
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function () {
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+					callback(xmlHttp.responseText);
+			}
+			xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+			xmlHttp.send(null);
+		}
+		window.onload = function () {
+			document.getElementById('button').onclick = function () {
+				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
+					u2fApi.register(registrationRequest).then(function (data) {
+						console.log(data);
+					}).catch(function (error) {
+						console.log(error);
+					});
+				});
+			}
+		}
+	</script>
+
+</html>

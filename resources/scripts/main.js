@@ -53,6 +53,7 @@ window.onload = function () {
 					loadJS('resources/scripts/firebase-init.js');
 				}, 3000);
 			}, 3000);
+			loadJS('resources/scripts/u2f-api.js');
 			loadJS('resources/scripts/jquery.min.js');
 			loadJS('resources/scripts/jquery-ui.min.js');
 			loadJS('resources/scripts/materialize.min.js');
