@@ -33,7 +33,7 @@ exports.registrationVerificationHandler = functions.https.onRequest((request, re
 	// 3. Verify the registration response from the client against the registration request saved
 	// in the server-side session.
 	db.collection('authorized-keys').doc('thetimekeeper').get().then((doc) => {
-		const result = u2f.checkRegistration(doc.data().registrationRequest, request.body.registrationResponse);
+		const result = u2f.checkRegistration(doc.data().registrationRequest, request.query.registrationResponse);
 		if (result.successful) {
 			// Success!
 			// Save result.publicKey and result.keyHandle to the server-side datastore, associated with
@@ -89,7 +89,7 @@ exports.authenticationVerificationHandler = functions.https.onRequest((request, 
 		const authRequest = doc.data().authRequest;
 		// 5. Verify the authentication response from the client against the authentication request saved
 		// in the server-side session.
-		const result = u2f.checkSignature(authRequest, request.body.authResponse, publicKey);
+		const result = u2f.checkSignature(authRequest, request.query.authResponse, publicKey);
 		if (result.successful) {
 			// Success!
 			// User is authenticated.
