@@ -18,12 +18,12 @@
 		}
 		function httpPostAsync(theUrl, theData, callback) {
 			var xmlHttp = new XMLHttpRequest();
-			xmlHttp.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
 			xmlHttp.onreadystatechange = function () {
 				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
 					callback(xmlHttp.responseText);
 			}
 			xmlHttp.open("POST", theUrl, true); // true for asynchronous
+			xmlHttp.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
 			xmlHttp.send(JSON.stringify(theData));
 		}
 		window.onload = function () {
