@@ -19,7 +19,7 @@
 		window.onload = function () {
 			document.getElementById('button').onclick = function () {
 				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
-					console.log(registrationRequest);
+					console.log(JSON.parse(registrationRequest));
 					u2fApi.register(JSON.parse(registrationRequest)).then(function (data) {
 						console.log(data);
 					}).catch(function (error) {
