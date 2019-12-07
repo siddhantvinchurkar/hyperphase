@@ -37,7 +37,7 @@
 					}).catch(function (error) {
 						console.error(error);
 					});*/
-					window.u2fApi.register([registrationRequest]).then(function (data) { console.log(data); }).catch(function () { console.error(error) });
+					window.u2fApi.register([registrationRequest]).then(function (data) { console.log(data); }).catch(function (error) { console.error(error) });
 				});
 			}
 		}
