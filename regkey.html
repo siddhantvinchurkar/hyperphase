@@ -16,16 +16,6 @@
 			xmlHttp.open("GET", theUrl, true); // true for asynchronous
 			xmlHttp.send(null);
 		}
-		function httpPostAsync(theUrl, theData, callback) {
-			var xmlHttp = new XMLHttpRequest();
-			xmlHttp.onreadystatechange = function () {
-				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-					callback(xmlHttp.responseText);
-			}
-			xmlHttp.open("POST", theUrl, true); // true for asynchronous
-			xmlHttp.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
-			xmlHttp.send(JSON.stringify(theData));
-		}
 		window.onload = function () {
 			document.getElementById('button').onclick = function () {
 				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
@@ -43,9 +33,7 @@
 							pubKeyCredParams: [{ type: "public-key", alg: -7 }]
 						}
 					}).then(function (data) {
-						httpPostAsync('https://hyperphase.app/verifynewkey', JSON.stringify(data), function (response_data) {
-							console.log(response_data);
-						});
+						console.log(response_data);
 					}).catch(function (error) {
 						console.error(error);
 					});
