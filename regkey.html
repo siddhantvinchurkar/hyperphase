@@ -16,6 +16,9 @@
 			xmlHttp.open("GET", theUrl, true); // true for asynchronous
 			xmlHttp.send(null);
 		}
+		function ab2str(buf) {
+			return String.fromCharCode.apply(null, new Uint16Array(buf));
+		}
 		window.onload = function () {
 			document.getElementById('button').onclick = function () {
 				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
@@ -34,6 +37,7 @@
 						}
 					}).then(function (response_data) {
 						console.log(response_data);
+						console.log(ab2str(response_data.response.clientDataJSON));
 					}).catch(function (error) {
 						console.error(error);
 					});
