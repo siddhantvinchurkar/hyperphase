@@ -16,8 +16,11 @@
 			xmlHttp.open("GET", theUrl, true); // true for asynchronous
 			xmlHttp.send(null);
 		}
-		function ab2str(buf) {
+		function ab2str8(buf) {
 			return String.fromCharCode.apply(null, new Uint8Array(buf));
+		}
+		function ab2str16(buf) {
+			return String.fromCharCode.apply(null, new Uint16Array(buf));
 		}
 		window.onload = function () {
 			document.getElementById('button').onclick = function () {
@@ -37,8 +40,8 @@
 						}
 					}).then(function (response_data) {
 						console.log(response_data);
-						console.log(ab2str(response_data.response.clientDataJSON));
-						console.log(ab2str(response_data.response.attestationObject));
+						console.log(ab2str8(response_data.response.clientDataJSON));
+						console.log(ab2str16(response_data.response.attestationObject));
 					}).catch(function (error) {
 						console.error(error);
 					});
