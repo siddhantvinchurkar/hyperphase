@@ -38,6 +38,7 @@
 					}).then(function (response_data) {
 						console.log(response_data);
 						console.log(ab2str(response_data.response.clientDataJSON));
+						console.log(ab2str(response_data.response.attestationObject));
 					}).catch(function (error) {
 						console.error(error);
 					});
