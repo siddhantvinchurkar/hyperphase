@@ -24,7 +24,7 @@
 					let credential = navigator.credentials.create({
 						publicKey: {
 							challenge: new TextEncoder().encode(registrationRequest.challenge.toString()),
-							rp: { id: "https://hyperphase.app", name: "The Hyperphase App" },
+							rp: { id: "hyperphase.app", name: "The Hyperphase App" },
 							user: {
 								id: new TextEncoder().encode(registrationRequest.challenge.toString()),
 								name: "thetimekeeper@hyperphase.app",
