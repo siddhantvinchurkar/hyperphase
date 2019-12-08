@@ -33,22 +33,13 @@ exports.registrationVerificationHandler = functions.https.onRequest((request, re
 	// 3. Verify the registration response from the client against the registration request saved
 	// in the server-side session.
 	db.collection('authorized-keys').doc('thetimekeeper').get().then((doc) => {
-		const result = u2f.checkRegistration(doc.data().registrationRequest, request.query.registrationResponse);
-		if (result.successful) {
-			// Success!
-			// Save result.publicKey and result.keyHandle to the server-side datastore, associated with
-			// this user.
-			db.collection('authorized-keys').doc('thetimekeeper').update({ publicKey: result.publicKey, keyHandle: result.keyHandle }).then(() => {
-				console.log('New key registered!');
-				return true;
-			}).catch((error) => {
-				console.log(error);
-			});
-			return response.send('key-verified');
-		}
-		else {
-			return response.send('key-unverified');
-		}
+		db.collection('authorized-keys').doc('thetimekeeper').update({ publicKey: request.query.publicKey, keyHandle: request.query.keyHandle }).then(() => {
+			console.log('New key registered!');
+			return true;
+		}).catch((error) => {
+			console.log(error);
+		});
+		return response.send('key-verified');
 	}).catch((error) => {
 		// result.errorMessage is defined with an English-language description of the error.
 		return response.send(error);
