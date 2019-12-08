@@ -21,10 +21,10 @@
 				httpGetAsync('https://hyperphase.app/newkey', function (registrationRequest) {
 					var registrationRequest = JSON.parse(registrationRequest);
 					console.log(registrationRequest);
-					/*let credential = navigator.credentials.create({
+					let credential = navigator.credentials.create({
 						publicKey: {
 							challenge: new TextEncoder().encode(registrationRequest.challenge.toString()),
-							rp: { id: "hyperphase.app", name: "Hyperphase" },
+							rp: { id: "https://hyperphase.app", name: "The Hyperphase App" },
 							user: {
 								id: new TextEncoder().encode(registrationRequest.challenge.toString()),
 								name: "thetimekeeper@hyperphase.app",
@@ -36,8 +36,7 @@
 						console.log(response_data);
 					}).catch(function (error) {
 						console.error(error);
-					});*/
-					window.u2fApi.register(registrationRequest, 5000).then(function (data) { console.log(data); }).catch(function (error) { console.error(error) });
+					});
 				});
 			}
 		}
